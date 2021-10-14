@@ -7,11 +7,10 @@ import (
 	"strings"
 
 	"github.com/google/go-github/github"
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/spf13/cobra"
 	"golang.org/x/oauth2"
-
-	_ "github.com/joho/godotenv/autoload"
 )
 
 const prefix = "SUPERNOVA"

@@ -9,7 +9,6 @@ go install github.com/wayneashleyberry/supernova@latest
 ### Usage
 
 ```
-
 Usage:
 stars [flags]
 stars [command]
@@ -24,5 +23,4 @@ Flags:
 -h, --help help for stars
 
 Use "stars [command] --help" for more information about a command.
-
 ```
