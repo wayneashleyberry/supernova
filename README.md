@@ -12,8 +12,8 @@ go install github.com/wayneashleyberry/supernova@latest
 
 ```
 Usage:
-  stars [flags]
-  stars [command]
+  supernova [flags]
+  supernova [command]
 
 Available Commands:
   delete      Unstar everything on GitHub

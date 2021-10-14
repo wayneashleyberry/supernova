@@ -30,7 +30,7 @@ func getSpecification() specification {
 
 func main() {
 	rootCmd := &cobra.Command{
-		Use: "stars",
+		Use: "supernova",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return cmd.Usage()
 		},
