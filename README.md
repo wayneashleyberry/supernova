@@ -1,4 +1,4 @@
-> Supernova is a command that backs up your GitHub stars offline and removes them from GitHub.com.
+> Supernova is a Go command that backs up your GitHub stars offline and removes them from GitHub.com.
 
 ### Installation
 
