@@ -14,6 +14,21 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
+const prefix = "SUPERNOVA"
+
+type specification struct {
+	GithubAccessToken string `envconfig:"GITHUB_ACCESS_TOKEN" required:"true"`
+	GithubUsername    string `envconfig:"GITHUB_USERNAME" required:"true"`
+}
+
+func getSpecification() specification {
+	var s specification
+
+	envconfig.MustProcess(prefix, &s)
+
+	return s
+}
+
 func main() {
 	rootCmd := &cobra.Command{
 		Use: "stars",
@@ -27,6 +42,16 @@ func main() {
 		Short: "Print a list of your GitHub stars",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return readStars()
+		},
+	})
+
+	rootCmd.AddCommand(&cobra.Command{
+		Use:   "env",
+		Short: "Print the required environment variables",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			var s specification
+
+			return envconfig.Usage(prefix, &s)
 		},
 	})
 
@@ -45,14 +70,7 @@ func main() {
 }
 
 func deleteStars() error {
-	type specification struct {
-		GithubAccessToken string `envconfig:"GITHUB_ACCESS_TOKEN" required:"true"`
-		GithubUsername    string `envconfig:"GITHUB_USERNAME" required:"true"`
-	}
-
-	var s specification
-
-	envconfig.MustProcess("", &s)
+	s := getSpecification()
 
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
@@ -100,14 +118,7 @@ func deleteStars() error {
 }
 
 func readStars() error {
-	type specification struct {
-		GithubAccessToken string `envconfig:"GITHUB_ACCESS_TOKEN" required:"true"`
-		GithubUsername    string `envconfig:"GITHUB_USERNAME" required:"true"`
-	}
-
-	var s specification
-
-	envconfig.MustProcess("", &s)
+	s := getSpecification()
 
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(

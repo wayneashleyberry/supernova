@@ -7,6 +7,7 @@ Usage:
 
 Available Commands:
   delete      Unstar everything on GitHub
+  env         Print the required environment variables
   help        Help about any command
   read        Print a list of your GitHub stars
 
