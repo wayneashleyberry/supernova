@@ -22,7 +22,7 @@ Available Commands:
   read        Print a list of your GitHub stars
 
 Flags:
-  -h, --help   help for stars
+  -h, --help   help for supernova
 
-Use "stars [command] --help" for more information about a command.
+Use "supernova [command] --help" for more information about a command.
 ```
